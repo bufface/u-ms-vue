@@ -17,6 +17,7 @@
       Coordinates: {{ x }}, {{ y }}
       - <span v-on:mousemove.stop="">DEAD SPOT ⚰️</span>
     </p>
+    <input type="text" v-on:keyup.enter="alertMe">
   </div>
 
   <script>
@@ -28,12 +29,15 @@
         y: 0
       },
       methods: {
-        increase: function (step, event) {
+        increase: function(step, event) {
           this.counter += step
         },
-        updateCoordinates: function (event) {
+        updateCoordinates: function(event) {
           this.x = event.clientX
           this.y = event.clientY
+        },
+        alertMe: function() {
+          alert('🕸')
         }
       }
     })
