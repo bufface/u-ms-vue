@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
   <div id="app">
-   <button v-on:click="increase(2, $event)">Click me 🖱</button>
-   <p>{{ counter }}</p>
-   <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }}, {{ y }}</p>
+    <button v-on:click="increase(2, $event)">Click me 🖱</button>
+    <p>{{ counter }}</p>
+    <p v-on:mousemove="updateCoordinates">
+      Coordinates: {{ x }}, {{ y }}
+      - <span v-on:mousemove.stop="">DEAD SPOT ⚰️</span>
+    </p>
   </div>
 
   <script>
@@ -23,10 +28,10 @@
         y: 0
       },
       methods: {
-        increase: function(step, event) {
+        increase: function (step, event) {
           this.counter += step
         },
-        updateCoordinates: function(event) {
+        updateCoordinates: function (event) {
           this.x = event.clientX
           this.y = event.clientY
         }
@@ -34,4 +39,5 @@
     })
   </script>
 </body>
+
 </html>
