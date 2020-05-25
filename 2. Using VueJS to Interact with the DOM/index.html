@@ -9,14 +9,15 @@
 </head>
 <body>
   <div id="app">
-    <p>{{ sayHello() }}</p>
+    <p>{{ sayHello() }} - <a v-bind:href="link">Duck Duck Go</a></p>
   </div>
 
   <script>
     new Vue({
       el: '#app',
       data: {
-        title: '👋 World!'
+        title: '👋 World!',
+        link: 'https://ddg.gg'
       },
       methods: {
         sayHello: function() {
