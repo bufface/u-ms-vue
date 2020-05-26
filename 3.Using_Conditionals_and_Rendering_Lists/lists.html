@@ -10,8 +10,9 @@
 <body>
   <div id="app">
     <ul>
-      <li v-for="(ingredient, key) in ingredients">{{ ingredient }} ({{ key }})</li>
+      <li v-for="(ingredient, key) in ingredients" :key="ingredient">{{ ingredient }} ({{ key }})</li>
     </ul>
+    <button @click="ingredients.push('spices')">Add new</button>
 
     <hr>
       <ul>
