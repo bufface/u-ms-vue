@@ -12,29 +12,39 @@ new Vue({
       this.playerHealth = 100
     },
     attack: function() {
-      var max = 10
-      var min = 3
-      var damage = Math.max(Math.floor(Math.random() * max), min)
-      this.monsterHealth -= damage
+      this.monsterHealth -= this.calculateDamage(3, 10)
 
-      if (this.monsterHealth <= 0) {
-        alert('You won')
-        this.gameIsRunning = false
+      if (this.checkWin()) {
         return
       }
 
-      var max = 12
-      var min = 5
-      var damage = Math.max(Math.floor(Math.random() * max), min)
-      this.playerHealth -= damage
-
-      if (this.playerHealth <= 0) {
-        alert('You lost')
-        this.gameIsRunning = false
-      }
+      this.playerHealth -= this.calculateDamage(5, 12)
+      this.checkWin()
     },
     specialAttack: function() {},
     heal: function() {},
-    giveUp: function() {}
+    giveUp: function() {},
+    calculateDamage: function(min, max) {
+      return Math.max(Math.floor(Math.random() * max), min)
+    },
+    checkWin: function() {
+      if (this.monsterHealth <= 0) {
+        if (confirm('You won, new game?')) {
+          this.startGame()
+        } else {
+          this.gameIsRunning = false
+        }
+        return true
+      } else if (this.playerHealth <= 0) {
+        if (confirm('You lost, new game?')) {
+          this.startGame()
+        } else {
+          this.gameIsRunning = false
+        }
+        return true
+      }
+
+      return false
+    }
   }
 })
