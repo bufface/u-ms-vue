@@ -1,9 +1,15 @@
 <template>
-  <h1>Hello World!</h1>
+  <p>Status {{ status }}</p>
 </template>
 
 <script>
-
+ export default {
+   data: function () {
+     return {
+       status: 'Critial'
+     }
+   }
+ }
 </script>
 
 <style>
