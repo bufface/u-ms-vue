@@ -5,37 +5,39 @@
         <button @click="selectedComponent = 'appQuote'">Quote</button>
         <button @click="selectedComponent = 'appAuthor'">Author</button>
         <button @click="selectedComponent = 'appNew'">New</button>
-        <hr>
-        <component :is="selectedComponent">
-          <p>Default Content</p>
-        </component>
+        <hr />
+        <keep-alive>
+          <component :is="selectedComponent">
+            <p>Default Content</p>
+          </component>
+        </keep-alive>
         <!-- <app-quote>
           <h2 slot="title">{{ quoteTitle }}</h2>
           <p>The ugly quote</p>
-        </app-quote> -->
+        </app-quote>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Quote from './components/Quote.vue'
-import Author from './components/Author.vue'
-import New from './components/New.vue'
+import Quote from "./components/Quote.vue";
+import Author from "./components/Author.vue";
+import New from "./components/New.vue";
 
 export default {
   data() {
     return {
-      quoteTitle: 'The Quote',
-      selectedComponent: 'appQuote'
-    }
+      quoteTitle: "The Quote",
+      selectedComponent: "appQuote"
+    };
   },
   components: {
     appQuote: Quote,
     appAuthor: Author,
     appNew: New
   }
-}
+};
 </script>
 
 <style scoped>
