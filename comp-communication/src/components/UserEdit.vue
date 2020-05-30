@@ -2,10 +2,25 @@
   <div class="component">
     <h3>You may edit the User here</h3>
     <p>Edit me!</p>
+    <p>User age: {{ userAge }}</p>
+    <button @click="changeName">Change Age</button>
   </div>
 </template>
 
 <script>
+import { eventBus } from '../main'
+
+export default {
+  props: {
+    userAge: Number
+  },
+  methods: {
+    changeName() {
+      this.userAge = 66
+      eventBus.$emit('ageWasEdited', this.userAge)
+    }
+  }
+}
 </script>
 
 <style scoped>
