@@ -16,6 +16,12 @@ export default {
   },
   destroyed() {
     console.log('🔥')
+  },
+  deactivated() {
+    console.log('🔥', 'deactivated')
+  },
+  activated() {
+    console.log('🔥', 'activated')
   }
 }
 </script>
