@@ -7,7 +7,11 @@
     <hr />
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <app-user-detail :myName="name" @nameWasReset="name = $event"></app-user-detail>
+        <app-user-detail
+          :myName="name"
+          @nameWasReset="name = $event"
+          :resetFn="resetNameFn"
+        ></app-user-detail>
       </div>
       <div class="col-xs-12 col-sm-6">
         <app-user-edit></app-user-edit>
@@ -33,6 +37,9 @@ export default {
   methods: {
     changeName() {
       this.name = 'Ana'
+    },
+    resetNameFn() {
+      this.name = 'Name reset 😎'
     }
   }
 };
