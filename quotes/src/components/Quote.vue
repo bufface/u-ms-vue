@@ -16,7 +16,7 @@ export default {
 
 <style>
 .panel-body {
-  font-family: 'Arizona', cursive;
+  font-family: 'Arizonia', cursive;
   font-family: 24px;
   color: #6e6e6e;
 }
