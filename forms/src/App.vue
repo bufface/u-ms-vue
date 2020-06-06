@@ -7,12 +7,7 @@
           <hr />
           <div class="form-group">
             <label for="email">Mail</label>
-            <input
-              type="text"
-              id="email"
-              class="form-control"
-              v-model="userData.email"
-            />
+            <input type="text" id="email" class="form-control" v-model="userData.email" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
@@ -25,12 +20,7 @@
           </div>
           <div class="form-group">
             <label for="age">Age</label>
-            <input
-              type="number"
-              id="age"
-              class="form-control"
-              v-model="userData.age"
-            />
+            <input type="number" id="age" class="form-control" v-model="userData.age" />
           </div>
         </div>
       </div>
@@ -39,7 +29,9 @@
           <label for="message">Message</label>
           <br />
           <!-- Interpolation between <textarea>{{ test }}</textarea> doesn't work!-->
-          <textarea id="message" rows="5" class="form-control"></textarea>
+          <textarea
+            v-model="message"
+            id="message" rows="5" class="form-control"></textarea>
         </div>
       </div>
       <div class="row">
@@ -90,7 +82,7 @@
             <p>Mail: {{ userData.email }}</p>
             <p>Password: {{ userData.password }}</p>
             <p>Age: {{ userData.age }}</p>
-            <p>Message:</p>
+            <p style="white-space: pre">Message: {{ message }}</p>
             <p>
               <strong>Send Mail?</strong>
             </p>
@@ -112,13 +104,14 @@ export default {
   data() {
     return {
       userData: {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         age: 33
-      }
-    }
+      },
+      message: 'Default message textarea'
+    };
   }
-}
+};
 </script>
 
 <style>
