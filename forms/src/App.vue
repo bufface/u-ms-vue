@@ -53,10 +53,14 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
           <label for="male">
-            <input type="radio" id="male" value="Male" /> Male
+            <input
+              v-model="gender"
+              type="radio" id="male" value="Male" /> Male
           </label>
           <label for="female">
-            <input type="radio" id="female" value="Female" /> Female
+            <input
+              v-model="gender"
+              type="radio" id="female" value="Female" /> Female
           </label>
         </div>
       </div>
@@ -93,7 +97,7 @@
             <ul>
               <li v-for="item in sendMail" :key="item">{{ item }}</li>
             </ul>
-            <p>Gender:</p>
+            <p>Gender: {{ gender }}</p>
             <p>Priority:</p>
             <p>Switched:</p>
           </div>
@@ -113,7 +117,8 @@ export default {
         age: 33
       },
       message: 'Default message textarea',
-      sendMail: []
+      sendMail: [],
+      gender: 'Male'
     };
   }
 };
