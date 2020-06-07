@@ -6,7 +6,8 @@ Vue.config.productionTip = false
 Vue.directive('highlight', {
   // eslint-disable-next-line
   bind( el, binding, vnode) {
-    el.style.backgroundColor = 'green'
+    // el.style.backgroundColor = 'green'
+    el.style.backgroundColor = binding.value
   }
 })
 
